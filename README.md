@@ -24,7 +24,7 @@ Mini_Project_4_3_Edge_Cloud/
 Python 3.10 or later with matplotlib (`pip install -r requirements.txt`); everything else is the standard library.
 
 ```
-python Mini_Project_4_1_Sampling_Jitter/rt_sampling_sim.py       (~30 s)
+python Mini_Project_4_1_Sampling_Jitter/rt_sampling_sim.py       (~5 s)
 python Mini_Project_4_2_MultiRate_Pipeline/pipeline.py           (~3 s)
 python Mini_Project_4_3_Edge_Cloud/edge_cloud_sim.py             (~3 s)
 ```
