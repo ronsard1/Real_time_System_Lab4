@@ -1,0 +1,27 @@
+T_nominal 50 ms, run 20 s, 400 cycles, threshold 0.5, 20 true upward crossings per run, 30 runs per configuration
+Check J = 0, p = 0: mean actuation delay 0.000 ms, max 0.000 ms (must be 0)
+======================================================================================================================
+config                 mean iv ms sd iv ms max over ms % > 1.05T % > 1.5T mean dly ms max dly ms  late>T drift s P err %
+baseline                    50.00     0.00         0.0       0.0      0.0         0.0        0.0    0.0%    0.00     0.0
+jitter J=0.1T               49.99     4.05         0.0      27.8      0.0        -0.1        5.0    0.0%   -0.00     5.0
+jitter J=0.2T               49.99     8.11         0.0      38.2      0.0         0.6       72.4    0.7%   -0.00     7.0
+jitter J=0.3T               49.98    12.15         0.0      41.7      1.2         1.9       76.9    1.7%   -0.01     8.6
+overrun p=0.06              52.71    11.52        75.0       6.2      4.9        16.2      147.5   10.5%    1.08    13.7
+overrun p=0.12              55.11    15.36        75.0      11.9      9.2        20.6      159.7   17.2%    2.04    17.0
+overrun p=0.18              57.76    18.36        75.0      18.1     14.0        27.3      170.3   23.7%    3.09    20.1
+J=0.1T, p=0.06              52.71    12.43        75.0      31.6      5.0        15.7      139.6   10.2%    1.08    13.9
+J=0.2T, p=0.12              55.12    17.82        75.0      44.0      9.6        23.5      156.3   19.2%    2.04    17.4
+J=0.3T, p=0.18              57.83    22.63        75.0      50.3     15.7        29.8      166.5   25.2%    3.13    20.9
+  30 runs x 20 crossings per row. iv = inter-sample interval; over = computation beyond T; dly = actuation delay
+  versus the ideal loop for the same crossing; late>T = crossings acted on more than one period late; drift =
+  extra time the 400 cycles took (schedule lag); P err = RMS deviation of a P-controller output (Kp = 2) from
+  the ideal loop, % of the output range
+======================================================================================================================
+Equal average disturbance per cycle (mean |jitter| = J T / 2 versus mean overrun excess = 0.85 p T):
+   5.0% vs  5.1% of T: jitter mean delay   -0.1 ms (max   5.0), overrun mean delay   16.2 ms (max 147.5)
+  10.0% vs 10.2% of T: jitter mean delay    0.6 ms (max  72.4), overrun mean delay   20.6 ms (max 159.7)
+  15.0% vs 15.3% of T: jitter mean delay    1.9 ms (max  76.9), overrun mean delay   27.3 ms (max 170.3)
+======================================================================================================================
+Halving T_nominal with absolute jitter (15 ms) and overrun times (60-125 ms) fixed, p = 0.06:
+  T = 50.0 ms: jitter bound =   30% of T, sd interval 17.04 ms = 34.1% of T, % > 1.5T   6.3, mean actuation delay   16.6 ms, drift 1.08 s
+  T = 25.0 ms: jitter bound =   60% of T, sd interval 19.47 ms = 77.9% of T, % > 1.5T  16.6, mean actuation delay   11.0 ms, drift 4.38 s

@@ -1,0 +1,33 @@
+Run 60 s; on-time = serviced within 10% of the period after release; tail: 3% of reads take 4-10 x longer
+Streams (period, median processing): air quality 200 ms / 45 ms, humidity 500 ms / 30 ms, temperature 1 s / 30 ms;
+load 2 adds vibration 50 ms / 12 ms. Utilisation (median processing / period): load 1 = 0.32, load 2 = 0.56;
+including the log-normal spread and the long tail about 0.39 and 0.69. Reads are not preemptible.
+================================================================================================================
+config          stream        required  on-time   late  missed on-time % mean late ms max late ms alerts alert lat ms
+FP_load1        air quality        300      268     31       1     89.3%          5.1       157.8      3           62
+FP_load1        humidity           120      109     11       0     90.8%         14.0       134.9      2          379
+FP_load1        temperature         60       55      5       0     91.7%         82.1       189.9      2          842
+
+EDF_load1       air quality        300      268     31       1     89.3%          5.1       157.8      3           62
+EDF_load1       humidity           120      109     11       0     90.8%         14.0       134.9      2          379
+EDF_load1       temperature         60       55      5       0     91.7%         82.1       189.9      2          842
+
+RR_load1        air quality        300      262     37       1     87.3%          8.9       176.2      3           74
+RR_load1        humidity           120      111      9       0     92.5%         12.2        75.7      2          379
+RR_load1        temperature         60       55      5       0     91.7%         58.5       157.8      2          809
+
+FP_load2        vibration         1201      679    399     123     56.5%          8.5        49.9      9           31
+FP_load2        air quality        300      264     35       1     88.0%         14.1       173.7      3           61
+FP_load2        humidity           120       66     54       0     55.0%         55.4       391.8      2          324
+FP_load2        temperature         60       19     41       0     31.7%        124.0       479.8      2          887
+
+EDF_load2       vibration         1201      679    399     123     56.5%          8.5        49.9      9           31
+EDF_load2       air quality        300      264     35       1     88.0%         14.1       173.7      3           61
+EDF_load2       humidity           120       66     54       0     55.0%         55.1       372.3      2          324
+EDF_load2       temperature         60       19     41       0     31.7%        124.0       479.8      2          887
+
+RR_load2        vibration         1201      698    300     203     58.1%          7.6        49.9      9           86
+RR_load2        air quality        300      273     27       0     91.0%         12.0       184.3      3           59
+RR_load2        humidity           120       82     38       0     68.3%         34.1       245.0      2          394
+RR_load2        temperature         60       49     11       0     81.7%         89.2       216.0      2          834
+

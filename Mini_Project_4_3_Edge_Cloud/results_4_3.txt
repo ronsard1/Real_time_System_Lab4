@@ -1,0 +1,21 @@
+20000 decision events at 20 Hz, deadline 100 ms, baseline congestion 0.2, hard readings 10%, hybrid-B timeout 85 ms
+======================================================================================
+architecture                mean ms   p95 ms   p99 ms  worst ms  compliance
+edge                           42.0     46.1     47.8      51.3     100.00%
+cloud (congestion 0.2)         46.0     62.2    103.8    1030.6      98.83%
+hybrid-A (cloud for hard)      43.7     55.1     67.4     868.2      99.80%
+hybrid-B (deadline-aware)      43.5     55.1     67.4      85.0     100.00%
+  hybrid-B fell back to the edge decision for 70 of 2000 hard readings (3.5%)
+======================================================================================
+Congestion sweep (compliance % / p99 ms):
+  congestion 0.0:  edge 100.00% /     48  cloud  99.82% /     56  hybrid_A  99.96% /     54  hybrid_B 100.00% /     54
+  congestion 0.1:  edge 100.00% /     48  cloud  99.46% /     82  hybrid_A  99.93% /     60  hybrid_B 100.00% /     60
+  congestion 0.2:  edge 100.00% /     48  cloud  98.83% /    104  hybrid_A  99.80% /     67  hybrid_B 100.00% /     67
+  congestion 0.3:  edge 100.00% /     48  cloud  97.90% /    131  hybrid_A  99.67% /     75  hybrid_B 100.00% /     75
+  congestion 0.4:  edge 100.00% /     48  cloud  96.60% /    155  hybrid_A  99.42% /     83  hybrid_B 100.00% /     83
+  congestion 0.5:  edge 100.00% /     48  cloud  94.60% /    180  hybrid_A  99.31% /     89  hybrid_B 100.00% /     85
+  congestion 0.6:  edge 100.00% /     48  cloud  92.28% /    205  hybrid_A  99.04% /     99  hybrid_B 100.00% /     85
+  congestion 0.7:  edge 100.00% /     48  cloud  89.66% /    226  hybrid_A  98.61% /    110  hybrid_B 100.00% /     85
+  congestion 0.8:  edge 100.00% /     48  cloud  86.43% /    252  hybrid_A  98.14% /    125  hybrid_B 100.00% /     85
+  congestion 0.9:  edge 100.00% /     48  cloud  83.00% /    292  hybrid_A  97.44% /    140  hybrid_B 100.00% /     85
+  congestion 1.0:  edge 100.00% /     48  cloud  79.14% /    324  hybrid_A  96.51% /    147  hybrid_B 100.00% /     85
